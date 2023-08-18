@@ -43,11 +43,11 @@
         </ng-container>
         <button class="btn btn-sm btn-danger" *ngIf="(account.CurrentUser$ | async)" (click)="logout()">Logout</button>
         
-        <div class="btn-group" dropdown *ngIf="account.CurrentUser$ | async as user">
-            <button id="button-animated" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
-                    aria-controls="dropdown-animated"  style="border-radius: 100%; border:none">
-                    {{user.userName}} <span class="caret"></span>
-            </button>
+        <div class="btn-group " dropdown *ngIf="account.CurrentUser$ | async as user" style="margin-left: 10px; ">
+            <a id="button-animated" dropdownToggle class="dropdown-toggle"
+                    aria-controls="dropdown-animated"  style="border-radius: 100%; border:none ;text-decoration: none; cursor: pointer;">
+                   <i class="text-info"> welcome {{user.userName}}</i> <span class="caret"></span>
+        </a>
             <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
                 role="menu" aria-labelledby="button-animated">
               <li role="menuitem"><a class="dropdown-item" href="#">{{user.userName}}</a></li>

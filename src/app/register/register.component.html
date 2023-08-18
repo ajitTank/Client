@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="text-info">Sing Up</h1>
+    <hr>
+    <form #regForm="ngForm" (ngSubmit)="register()">
+        <input type="text" class="form-control mb-2"
+            placeholder="userName"
+            name="userName"
+            
+            [(ngModel)]="regModel.userName"
+            #userName = "ngModel"
+            >
+        <input type="text" class="form-control"
+            placeholder="Password"
+            name="password"
+            [(ngModel)]="regModel.password"
+                #password = "ngModel"
+                >
+        <div class="mt-2">
+            <button class="btn btn-sm btn-primary me-5 ">register</button>    
+        <a class="btn btn-sm btn-warning" (click)="reset()" >Cancel</a>   
+        </div> 
+    </form>
+</div>

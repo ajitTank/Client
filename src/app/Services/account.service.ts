@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { loginDto } from '../nav/loginDto';
-import { loginResponse } from '../nav/loginResponse';
-import { token } from '../nav/token';
+import { loginDto } from '../_models/loginDto';
+import { loginResponse } from '../_models/loginResponse';
+import { token } from '../_models/token';
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +37,9 @@ logout(){
   localStorage.setItem("userToken","");
 }
 
+
+register(register:any):Observable<any>{
+return this.http.post<any>('https://localhost:7263/api/'+'Account/register',register);
+}
 
 }

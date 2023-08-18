@@ -3,7 +3,7 @@ import { AccountService } from '../Services/account.service';
 
 import { NgForm } from '@angular/forms';
 import { Token } from '@angular/compiler';
-import { loginDto } from './loginDto';
+import { loginDto } from '../_models/loginDto';
 import { HttpStatusCode } from '@angular/common/http';
 
 @Component({
