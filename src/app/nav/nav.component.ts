@@ -20,7 +20,7 @@ userName:string="";
 constructor(public account : AccountService) {
  var currentUser = localStorage.getItem("userToken");
  if(currentUser){
-  account.currentUser.next(JSON.parse(currentUser))
+  account.setCurrentUser(JSON.parse(currentUser));
  }
 
 }

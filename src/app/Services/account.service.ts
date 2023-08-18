@@ -11,7 +11,7 @@ import { token } from '../nav/token';
 export class AccountService {
 //https://localhost:7263/api/Account/login
 baseUrl = 'https://localhost:7263/api/'
-currentUser = new BehaviorSubject<token|null>(null);
+private currentUser = new BehaviorSubject<token|null>(null);
 CurrentUser$ = this.currentUser.asObservable();
 constructor(private http:HttpClient) { }
 
@@ -29,7 +29,9 @@ return  this.http.post<loginResponse>(this.baseUrl+'Account/login',login)
         )        
 }
 
-
+setCurrentUser(logedInUser:token){
+this.currentUser.next(logedInUser);
+}
 logout(){
   this.currentUser.next(null);
   localStorage.setItem("userToken","");
