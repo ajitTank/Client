@@ -27,7 +27,7 @@
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
           </li>
         </ul>
-        <ng-container *ngIf="!isLoggedIn">
+        <ng-container *ngIf="!(account.CurrentUser$ | async)">
             <form #loginFormRef = "ngForm" class="d-flex" (ngSubmit)="loginForm(loginFormRef)" >
                 <input class="form-control me-2" type="text" placeholder="userName"
                 name="userName"
@@ -41,16 +41,16 @@
               <button class="btn btn-outline-success" type="submit">login</button>
             </form>
         </ng-container>
-        <button class="btn btn-sm btn-danger" *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+        <button class="btn btn-sm btn-danger" *ngIf="(account.CurrentUser$ | async)" (click)="logout()">Logout</button>
         
-        <div class="btn-group" dropdown *ngIf="isLoggedIn">
+        <div class="btn-group" dropdown *ngIf="account.CurrentUser$ | async as user">
             <button id="button-animated" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
                     aria-controls="dropdown-animated"  style="border-radius: 100%; border:none">
-                    {{userName}} <span class="caret"></span>
+                    {{user.userName}} <span class="caret"></span>
             </button>
             <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
                 role="menu" aria-labelledby="button-animated">
-              <li role="menuitem"><a class="dropdown-item" href="#">{{userName}}</a></li>
+              <li role="menuitem"><a class="dropdown-item" href="#">{{user.userName}}</a></li>
               <li role="menuitem"><a class="dropdown-item" (click)="logout()" >Logout</a>
               </li>
               <li role="menuitem"><a class="dropdown-item" href="#">Something else

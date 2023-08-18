@@ -17,8 +17,12 @@ userName:string="";
 /**
  *
  */
-constructor(private account : AccountService) {
-  
+constructor(public account : AccountService) {
+ var currentUser = localStorage.getItem("userToken");
+ if(currentUser){
+  account.currentUser.next(JSON.parse(currentUser))
+ }
+
 }
 
 
@@ -49,8 +53,7 @@ this.account.login(loginForm.value ).subscribe({
 }
 
 logout(){
-  this.isLoggedIn = false;
-
+  this.account.logout();
 }
 
 }
