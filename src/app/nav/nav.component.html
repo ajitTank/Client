@@ -10,8 +10,9 @@
             <li class="nav-link"><a class="dropdown-item" routerLink="/member" >Member</a></li>
             <li class="nav-link"><a class="dropdown-item" routerLink="/message" >Message</a></li>
             <li class="nav-link"><a class="dropdown-item" routerLink="/lists" >List</a></li>
-        </ul>
-       </ng-container>
+          </ul>
+        </ng-container>
+        <li class="nav-link text-info"><a class="dropdown-item" routerLink="/error" >Error</a></li>
         <ng-container *ngIf="!(account.CurrentUser$ | async)" class="d-flex">
           <div class="ms-auto">
             <form #loginFormRef = "ngForm" class="d-flex" (ngSubmit)="loginForm(loginFormRef)" >

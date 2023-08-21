@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <button (click)="get400Error()">Get Bad request</button>
+    <button (click)="getSuccess()">Get getSuccess request</button>
+    <button (click)="getValidationError()">get ValidationError </button>
+    <button (click)="get401Error()"> Authorization Error</button>
+    <button (click)="get500Error()"> get500Error</button>
+    <button (click)="get404Error()"> get404Error Page not found</button>
+    
+    <div class="cotainer">
+        <ng-container *ngIf="ValiationError.length > 0 ">
+            <div *ngFor="let err of ValiationError">
+                <p>{{err}}</p>
+                 
+            </div>   
+        </ng-container>
+        
+    </div>
+
+</div>
